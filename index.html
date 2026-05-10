@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="bg-gradient" aria-hidden="true"></div>
+    <main class="card">
+      <header class="card__header">
+        <h1>Current weather</h1>
+        <p class="subtitle">Enter a city to see conditions right now.</p>
+      </header>
+
+      <form class="search" id="search-form" autocomplete="off">
+        <label class="sr-only" for="city">City name</label>
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="e.g. Tokyo, Paris, Nairobi"
+          required
+          minlength="2"
+        />
+        <button type="submit" id="submit-btn">Search</button>
+      </form>
+
+      <p class="hint" role="note">
+        Powered by
+        <a href="https://open-meteo.com/" target="_blank" rel="noopener noreferrer"
+          >Open-Meteo</a
+        >
+        (no API key required).
+      </p>
+
+      <section class="result" id="result" hidden aria-live="polite">
+        <div class="result__location">
+          <h2 id="place-name">—</h2>
+          <p id="place-detail" class="place-detail"></p>
+        </div>
+        <div class="result__main">
+          <span class="temp" id="temp">—</span>
+          <span class="unit" id="unit">°C</span>
+        </div>
+        <p class="condition" id="condition">—</p>
+        <dl class="metrics">
+          <div>
+            <dt>Feels like</dt>
+            <dd id="feels">—</dd>
+          </div>
+          <div>
+            <dt>Humidity</dt>
+            <dd id="humidity">—</dd>
+          </div>
+          <div>
+            <dt>Wind</dt>
+            <dd id="wind">—</dd>
+          </div>
+        </dl>
+      </section>
+
+      <p class="error" id="error" hidden role="alert"></p>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
